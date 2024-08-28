@@ -34,22 +34,19 @@ public class MaxHeapify {
         if (leftChildValue > parentValue && leftChildValue > rightChildValue){
             arr[leftChildIndex] = parentValue; 
             arr[arrIndex] = leftChildValue;
-            maxHeapify(arr, heapIndex * 2);
-            maxHeapify(arr, heapIndex * 2 + 1); //re-heapify left descendents after switching
+            maxHeapify(arr, heapIndex * 2); //re-heapify left descendents after switching
         }
 
         //if right child > parent, and right child > left child, swap right child with parent
         else if (rightChildValue > parentValue && rightChildValue > leftChildValue){
             arr[rightChildIndex] = parentValue; 
             arr[arrIndex] = rightChildValue;
-            maxHeapify(arr, heapIndex * 2); //re-heapify right descendents after switching
-            maxHeapify(arr, heapIndex * 2 + 1);
+            maxHeapify(arr, heapIndex * 2 + 1); //re-heapify right descendents after switching
         }
     }
     
     public static void main(String[] args) {
         int[] array = {10,20,25,6,12,15,4,16,100};
-        //only works for odd-number sized arrays????
         maxHeapify(array, 1); //array starts from index 1
         for (int num: array) System.out.print(num + " "); //print array
     }
